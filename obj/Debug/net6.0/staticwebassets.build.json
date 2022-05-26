@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "44jGyK4w4yH1gRNe2dPuyoy5BTYCxwSAK0dJSsWoR6Y=",
+  "Source": "Recruitment",
+  "BasePath": "_content/Recruitment",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Recruitment\\wwwroot",
+      "Source": "Recruitment",
+      "ContentRoot": "C:\\Users\\User\\Downloads\\Recruitment\\Recruitment\\wwwroot\\",
+      "BasePath": "_content/Recruitment",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.9\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.9\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.9\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.9\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.9\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.9\\staticwebassets\\MudBlazor.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Downloads\\Recruitment\\Recruitment\\wwwroot\\favicon.ico",
+      "SourceId": "Recruitment",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Downloads\\Recruitment\\Recruitment\\wwwroot\\",
+      "BasePath": "_content/Recruitment",
+      "RelativePath": "favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    }
+  ]
+}

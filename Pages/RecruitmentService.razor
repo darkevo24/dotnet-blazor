@@ -1,0 +1,46 @@
+﻿@page "/service"
+
+<style>
+	.app {
+
+	}
+	.top1 {
+		display : flex;
+	}
+	.top2 {
+		display : flex;
+		margin-top : 5px;
+	}
+	.top3 {
+		display : flex;
+		margin-top : 15px;
+		justify-content : center;
+		align-items : center;
+	}
+</style>
+
+<div class="app">
+	<div class="top1">
+<MudButton Href="/service/vacancyDetail" Class="mx-4" Variant="Variant.Outlined" Color="Color.Primary">Vacancy Detail</MudButton>
+<MudButton Class="mx-4" Variant="Variant.Outlined" Color="Color.Primary">Applicant Detail</MudButton>
+<MudButton Class="mx-4" Variant="Variant.Outlined" Color="Color.Primary">Interview Criteria</MudButton>
+<MudButton Class="mx-4" Variant="Variant.Outlined" Color="Color.Primary">Import From Excel</MudButton>
+</div>
+	<div class="top2">
+<MudButton Class="mx-4" Variant="Variant.Outlined" Color="Color.Primary">Schedule and Scoring</MudButton>
+<MudButton Class="mx-4" Variant="Variant.Outlined" Color="Color.Primary">Posting to Empl. Master</MudButton>
+</div>
+<div class="top3">
+	<MudButtonGroup Color="Color.Primary" Variant="Variant.Outlined">
+    <MudButton Href="/service/vacancyTracking">Vacancy Tracking</MudButton>
+    <MudButton Href="/service/vacancyList">Vacancy List</MudButton>
+    <MudButton Href="/service/applicantList">Applicant List</MudButton>
+	<MudButton Href="/service/schedule">Schedule</MudButton>
+    <MudButton>Interview Result</MudButton>
+    <MudButton>Hiring Team</MudButton>
+</MudButtonGroup>
+</div>
+</div>
+@code {
+
+}

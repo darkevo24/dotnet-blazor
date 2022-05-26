@@ -1,0 +1,93 @@
+﻿@page "/service/vacancyList"
+@using Recruitment.Data;
+
+<style>
+    .filter {
+        display : flex;
+        align-items : center;
+        justify-content :flex-end;
+    }
+</style>
+<RecruitmentService></RecruitmentService>
+
+<div class="app">
+    <div class="filter">
+        <MudText>Filter</MudText>
+        <MudCheckBox @bind-Checked="@all" Color="Color.Primary"></MudCheckBox>
+        <MudText>All</MudText>
+        <MudCheckBox @bind-Checked="@open" Color="Color.Primary"></MudCheckBox>
+        <MudText>Open</MudText>
+        <MudCheckBox @bind-Checked="@close" Color="Color.Primary"></MudCheckBox>
+        <MudText>Close</MudText>
+    </div>
+<MudTable Items="@vacancyList"
+      Class="my-3"
+      Dense="@true" Hover="@true" Bordered="@true" Striped="@true"  CanCancelEdit="@true"
+      CustomHeader="@true" 
+      >
+<HeaderContent>
+    <MudTHeadRow>
+        <MudTh>ID</MudTh>
+        <MudTh>POSITION</MudTh>
+        <MudTh>DEPARTMENT</MudTh>
+        <MudTh>Status</MudTh>
+        <MudTh></MudTh>
+    </MudTHeadRow>
+</HeaderContent>
+    <RowTemplate>
+            @if(open == true && close == false && all == false)
+            {
+                @if(@context.Status == "open")
+                {
+                    <MudTd DataLabel="ID">@context.ID</MudTd>
+                    <MudTd DataLabel="position">@context.Position</MudTd>
+                    <MudTd DataLabel="department">@context.Department</MudTd>
+                    <MudTd DataLabel="Status">@context.Status</MudTd>
+                    <MudTd DataLabel="search"><MudIcon Icon="@Icons.Filled.Search"/></MudTd>
+                }
+            }
+            else if(close == true && open == false && all == false)
+            {
+                @if(@context.Status == "close")
+                {
+                    <MudTd DataLabel="ID">@context.ID</MudTd>
+                    <MudTd DataLabel="position">@context.Position</MudTd>
+                    <MudTd DataLabel="department">@context.Department</MudTd>
+                    <MudTd DataLabel="Status">@context.Status</MudTd>
+                    <MudTd DataLabel="search"><MudIcon Icon="@Icons.Filled.Search"/></MudTd>
+                }
+            }
+            else
+            {
+                    <MudTd DataLabel="ID">@context.ID</MudTd>
+                    <MudTd DataLabel="position">@context.Position</MudTd>
+                    <MudTd DataLabel="department">@context.Department</MudTd>
+                    <MudTd DataLabel="Status">@context.Status</MudTd>
+                    <MudTd DataLabel="search"><MudIcon Icon="@Icons.Filled.Search"/></MudTd>
+            }
+        </RowTemplate>
+</MudTable>
+</div>
+@code {
+    public bool all = true;
+    public bool open = false;
+    public bool close = false;
+    List<VacancyListModel> vacancyList = new List<VacancyListModel>()
+    {
+        new VacancyListModel()
+        {
+            Position="HR Officer",Department="Human Resources",ID=1,Status="open"
+        },
+                new VacancyListModel()
+        {
+            Position="Pool Attendant",Department="Engineering",ID=2,Status="close"
+        },
+                new VacancyListModel()
+        {
+            Position="Cook Helper",Department="F&B Kitchen",ID=3,Status="open"
+        },
+    };
+    VacancyListModel newList = new VacancyListModel();
+}
+
+

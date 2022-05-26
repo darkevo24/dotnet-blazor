@@ -1,0 +1,86 @@
+﻿@page "/service/vacancyTracking"
+@using Recruitment.Data;
+
+<style>
+</style>
+<RecruitmentService></RecruitmentService>
+
+<div class="app">
+    <MudText Typo="Typo.h5">Vacancy List</MudText>
+<MudTable Items="@vacancyList"
+      Class="my-3"
+      Dense="@true" Hover="@true" Bordered="@true" Striped="@true"  CanCancelEdit="@true"
+      CustomHeader="@true" 
+      >
+<HeaderContent>
+    <MudTHeadRow>
+        <MudTh>POSITION</MudTh>
+        <MudTh>DEPARTMENT</MudTh>
+        <MudTh>NO EMPL</MudTh>
+    </MudTHeadRow>
+</HeaderContent>
+
+<RowTemplate>
+    <MudTd DataLabel="position">@context.Position</MudTd>
+    <MudTd DataLabel="department">@context.Department</MudTd>
+    <MudTd DataLabel="noEmpl">@context.NoEmpl</MudTd>
+</RowTemplate>
+
+</MudTable>
+<MudText Typo="Typo.h5">Applicant List</MudText>
+<MudTable Items="@applicantList"
+      Class="my-3"
+      Dense="@true" Hover="@true" Bordered="@true" Striped="@true"  CanCancelEdit="@true"
+      CustomHeader="@true" 
+      >
+<HeaderContent>
+    <MudTHeadRow>
+        <MudTh>App. No</MudTh>
+        <MudTh>NAME</MudTh>
+        <MudTh>STATUS</MudTh>
+        <MudTh>GENDER</MudTh>
+        <MudTh>MARITAS STATUS</MudTh>
+        <MudTh>RELIGION</MudTh>
+    </MudTHeadRow>
+</HeaderContent>
+
+<RowTemplate>
+    <MudTd DataLabel="position">@context.No</MudTd>
+    <MudTd DataLabel="department">@context.Name</MudTd>
+    <MudTd DataLabel="noEmpl">@context.Status</MudTd>
+    <MudTd DataLabel="department">@context.Gender</MudTd>
+    <MudTd DataLabel="noEmpl">@context.MaritasStatus</MudTd>
+    <MudTd DataLabel="noEmpl">@context.Religion</MudTd>
+</RowTemplate>
+
+</MudTable>
+</div>
+@code {
+    List<VacancyListModel> vacancyList = new List<VacancyListModel>()
+    {
+        new VacancyListModel()
+        {
+            Position="HR Officer",Department="Human Resources",NoEmpl=1
+        },
+                new VacancyListModel()
+        {
+            Position="Pool Attendant",Department="Engineering",NoEmpl=1
+        },
+                new VacancyListModel()
+        {
+            Position="Cook Helper",Department="F&B Kitchen",NoEmpl=2
+        },
+    };
+    List<ApplicantListModel> applicantList = new List<ApplicantListModel>()
+    {
+        new ApplicantListModel()
+        {
+            No = 1,Name = "Pelamar 1",Status="Candidate",Gender="Male",MaritasStatus="Single"
+        },
+        new ApplicantListModel()
+        {
+            No = 2,Name = "Pelamar 2",Status="Candidate"
+        }
+    };
+}
+

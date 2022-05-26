@@ -1,0 +1,35 @@
+﻿@page "/service/schedule"
+
+<style>
+	.navbar{
+		display : flex;
+		justify-content : center;
+		align-items : center;
+	}
+	.date{
+		width : 200px;
+		margin : 20px;
+	}
+</style>
+
+<RecruitmentService></RecruitmentService>
+<div class="app">
+	<div class="navbar">
+		<MudText >Date From</MudText>
+		<MudDatePicker Class="date" Label="Date From" @bind-Date="date"/>
+		<MudText >Until</MudText>
+		<MudDatePicker Class="date" Label="Until" @bind-Date="date"/>
+		<MudText >Applicant</MudText>
+		<MudTextField Placeholder="Date From" Class="date" @bind-Value="TextValue" Variant="Variant.Text" Margin="Margin.Dense"></MudTextField>
+		<MudText>Interviewer</MudText>
+		<MudSelect Class="date" Margin="Margin.Dense" T="string" Variant="Variant.Filled">
+		</MudSelect>
+		<MudButton Variant="Variant.Filled">Refresh</MudButton>
+
+	</div>
+</div>
+
+@code {
+	DateTime? date = DateTime.Today;
+	public string TextValue { get; set; }
+}

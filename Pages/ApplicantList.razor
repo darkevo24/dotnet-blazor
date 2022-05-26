@@ -1,0 +1,76 @@
+﻿@page "/service/applicantList"
+@using Recruitment.Data;
+
+<style>
+        .filter {
+        display : flex;
+        align-items : center;
+        justify-content :flex-end;
+    }
+</style>
+<RecruitmentService></RecruitmentService>
+
+<div class="app">
+        <div class="filter">
+            <MudText Class="mr-5">Filter</MudText>
+            <select class="form-control"  @onchange="@OnSelect" style="width:150px">
+         @foreach (var item in status)
+         {
+                 <option value=@item>@item</option>
+         }
+</select>
+    </div>
+<MudTable Items="@applicantList"
+      Class="my-3"
+      Dense="@true" Hover="@true" Bordered="@true" Striped="@true"  CanCancelEdit="@true"
+      CustomHeader="@true" 
+      >
+<HeaderContent>
+    <MudTHeadRow>
+        <MudTh>ID</MudTh>
+        <MudTh>NAME</MudTh>
+        <MudTh>DATE APPLIED</MudTh>
+        <MudTh>STATUS</MudTh>
+        <MudTh></MudTh>
+    </MudTHeadRow>
+</HeaderContent>
+
+<RowTemplate>
+    @if (@context.Status == @selectedString)
+    {
+    <MudTd DataLabel="position">@context.ID</MudTd>
+    <MudTd DataLabel="department">@context.Name</MudTd>
+    <MudTd DataLabel="noEmpl">@context.Date</MudTd>
+    <MudTd DataLabel="department">@context.Status</MudTd>
+    <MudTd DataLabel="noEmpl"><MudIcon Icon="@Icons.Filled.Search"/></MudTd>
+    }
+</RowTemplate>
+
+</MudTable>
+</div>
+
+@code {
+    List<string> status = new List<string>() { "Candidate", "Shortlisted", "Hired", "Rejected", "Postponed","Posted" };
+    string selectedString = "Candidate";
+
+    void OnSelect (ChangeEventArgs e)
+    {
+            selectedString = e.Value.ToString();
+    }
+    List <ApplicantListModel> applicantList = new List<ApplicantListModel>()
+    {
+        new ApplicantListModel()
+        {
+            ID = 1,Name = "Pelamar 1",Status="Candidate",Date = new DateTime(2022,4,2)
+        },
+        new ApplicantListModel()
+        {
+            ID = 2,Name = "Pelamar 2",Status="Shortlisted",Date = new DateTime(2022,4,2)
+        },
+        new ApplicantListModel()
+        {
+            ID = 3,Name = "Pelamar 3",Status="Candidate",Date = new DateTime(2022,5,1)
+        }
+    };
+}
+
