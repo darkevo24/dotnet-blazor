@@ -1,0 +1,26 @@
+﻿@page "/service/interviewResult"
+@using Recruitment.Data;
+
+<style>
+	.navbar {
+		display : flex;
+		justify-content : center;
+		align-items : center;
+		width : 40%;
+		float : right;
+	}
+	.date {
+		width : 100px;
+	}
+</style>
+
+<RecruitmentService></RecruitmentService>
+<div class="navbar">
+	<MudText Class="mr-5">Short Listed Applicant</MudText>
+	<MudSelect Class="date" Margin="Margin.Dense" T="string" Variant="Variant.Filled">
+	</MudSelect>
+</div>
+
+@code {
+
+}

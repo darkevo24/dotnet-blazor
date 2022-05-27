@@ -1,0 +1,229 @@
+﻿@page "/service/applicantDetail"
+<style>
+	.form-top{
+		display : flex;
+		justify-content : flex-start;
+		align-items : flex-start;
+	}
+	.form-left {
+		width : 35%;
+	}
+		.form-right {
+		width : 35%;
+	}
+	.form {
+		display : flex;
+		justify-content : flex-end;
+		align-items : center;
+		position : relative;
+	}
+	.text {
+		margin : 10px;
+	}
+	.navbar {
+		display : flex;
+		justify-content : center;
+		align-items : center;
+		margin-top : 10px;
+	}.input {
+		border : 1px solid black;
+		float : right;
+	}
+	.select {
+		width : 160px;
+		border : 1px solid black;
+	}
+	.emergency {
+		color : lightskyblue;
+	}
+</style>
+<div class="app">
+	<div class="form-top">
+		<div class="form-left">
+			<div class="form">
+				<MudText Class="text">Name</MudText>
+				<input class="input" @bind-value="text"  Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Applied For</MudText>
+				<input class="input" @bind-value="text"  Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Section</MudText>
+				<input class="input" @bind-value="text"  Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Department</MudText>
+				<input class="input" @bind-value="text"  Variant="Variant.Outlined">
+			</div>
+		</div>
+		<div class="form-right">
+						<div class="form">
+				<MudText Class="text">Applicant No</MudText>
+				<input class="input" @bind-value="text"  Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Status</MudText>
+				<input class="input" @bind-value="text"  Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Date Register</MudText>
+				<input class="input" @bind-value="text"  Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Expected THP</MudText>
+				<input class="input" @bind-value="text"  Variant="Variant.Outlined">
+			</div>
+		</div>
+	</div>
+	<div class="navbar">
+	<MudButtonGroup Color="Color.Primary" Variant="Variant.Outlined">
+    <MudButton Href="/service/applicantDetail/personalData">Personal Data</MudButton>
+    <MudButton Href="/service/applicantDetail/educationBackground">Education Background</MudButton>
+    <MudButton Href="/service/applicantDetail/foreignLanguage">Foreign Language</MudButton>
+	<MudButton Href="/service/applicantDetail/family">Family</MudButton>
+    <MudButton Href="/service/applicantDetail/employmentHistory">Employment History</MudButton>
+	<MudButton Href="/service/applicantDetail/yourReference">Your Reference</MudButton>
+	<MudButton Href="/service/applicantDetail/others">Others</MudButton>
+	<MudButton Href="/service/applicantDetail/attachments">Attachments</MudButton>
+</MudButtonGroup>
+	</div>
+		<div class="form-top">
+		<div class="form-left">
+			<div class="form">
+				<MudText Class="text">Nick Name</MudText>
+				<input class="input" @bind-value="text"  Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Gender</MudText>
+				<select onchange="sayHello" class="select">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</div>
+						<div class="form">
+				<MudText Class="text">Marital Status</MudText>
+				<select class="select">
+					<option value="single">Single</option>
+					<option value="married">Married</option>
+				</select>
+			</div>
+						<div class="form">
+				<MudText Class="text">Date Of Birth</MudText>
+				<input type="date" class="input"   Variant="Variant.Outlined">
+			</div>
+									<div class="form">
+				<MudText Class="text">Place Of Birth</MudText>
+				<input type="date" class="input"  Variant="Variant.Outlined">
+			</div>
+									<div class="form">
+				<MudText Class="text">Religion</MudText>
+				<select class="select">
+					<option value="budha">Budha</option>
+					<option value="catholic">Catholic</option>
+					<option value="christian">Christian</option>
+					<option value="hindu">Hindu</option>
+					<option value="moslem">Moslem</option>
+					<option value="others">Others</option>
+				</select>
+			</div>
+				<div class="form">
+				<MudText Class="text">Nationality</MudText>
+				<select class="select">
+					<option value="indonesia">Indonesia</option>
+					<option value="australia">Australia</option>
+				</select>
+			</div>
+				<div class="form">
+				<MudText Class="text">Blood Type</MudText>
+				<select class="select">
+					<option value="A">A</option>
+					<option value="AB">AB</option>
+					<option value="B">B</option>
+					<option value="O">O</option>
+				</select>
+							</div>
+							<div class="form">
+				<MudText Class="text">Current Address</MudText>
+				<textarea class="input"   Variant="Variant.Outlined"></textarea>
+			</div>
+			<div class="form">
+				<MudText Class="text">Current Postal Code</MudText>
+				<input class="input"   Variant="Variant.Outlined">
+			</div>
+				<div class="form">
+				<MudText Class="text">Current City</MudText>
+				<input class="input"   Variant="Variant.Outlined">
+			</div>
+		</div>
+		<div class="form-right">
+				<div class="form">
+				<MudText Class="text">Mobile Phone</MudText>
+				<input class="input"   Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Home Phone</MudText>
+				<input class="input"  Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Email Address</MudText>
+				<input class="input"  Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">ID Card Type</MudText>
+				<input class="input" Variant="Variant.Outlined">
+			</div>
+							<div class="form">
+				<MudText Class="text">IC Card No</MudText>
+				<input class="input"   Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Mother's Name'</MudText>
+				<input class="input"  Variant="Variant.Outlined">
+			</div>
+						<div class="form">
+				<MudText Class="text">Legal Address</MudText>
+				<textarea class="input"  Variant="Variant.Outlined"></textarea>
+			</div>
+						<div class="form">
+				<MudText Class="text">Legal Post Code</MudText>
+				<input class="input" Variant="Variant.Outlined">
+			</div>
+							<div class="form">
+				<MudText Class="text">Legal City</MudText>
+				<input class="input"   Variant="Variant.Outlined">
+			</div>
+		</div>
+	</div>
+	<div class="form-top">
+		<div class="form-left">
+			<MudText Class="emergency">Emergency Contact</MudText>
+				<div class="form">
+				<MudText Class="text">EC Name</MudText>
+				<input class="input"   Variant="Variant.Outlined">
+			</div>
+										<div class="form">
+				<MudText Class="text">EC Address</MudText>
+				<textarea class="input"   Variant="Variant.Outlined"></textarea>
+			</div>
+		</div>
+		<div class=" form-right">
+									<div class="form">
+				<MudText Class="text">EC Phone No</MudText>
+				<input class="input" Variant="Variant.Outlined">
+			</div>
+							<div class="form">
+				<MudText Class="text">Relationship</MudText>
+				<input class="input"   Variant="Variant.Outlined">
+			</div>
+</div>
+	</div>
+</div>
+
+@code {
+	public string text;
+	void sayHello()
+	{
+		Console.WriteLine("Hello");
+	}
+}

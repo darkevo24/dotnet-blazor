@@ -10,7 +10,8 @@
         public string Religion { get; set; }
         public DateTime Date { get; set; }
         public int ID { get; set; }
-
+        public string AppliedFor { get; set; }
+        public string Section { get; set; }
 
     }
 }

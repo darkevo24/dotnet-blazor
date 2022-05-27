@@ -1,0 +1,202 @@
+﻿@page "/service/vacancyDetail"
+@using Recruitment.Data;
+@using Microsoft.AspNetCore.Components
+@using System.Globalization;
+
+<style>
+    .add {
+        display : flex;
+        align-items : center;
+        justify-content :flex-end;
+    }
+        .filter {
+        display : flex;
+        align-items : center;
+        justify-content :center;
+    }
+    .form {
+        display : flex;
+    }
+    .form-left {
+       width : 35%;
+    }
+        .form-right {
+       width : 35%;
+       margin-bottom : 20px;
+    }
+    .textField {
+        position : absolute;
+        right : 0;
+    }
+    .textForm {
+        display : flex;
+        justify-content:flex-start;
+        align-items:center;
+        padding : 10px;
+        position : relative;
+    }
+    .formBottom {
+        width : 70%;
+    }
+    .textFormBottom {
+        display : flex;
+        justify-content : center;
+        align-items : center;
+    }
+</style>
+<div class="app">
+    <div class="add">
+    </div>
+<MudTable Items="@vacancyList"
+      Class="my-3"
+      Dense="@true" Hover="@true" Bordered="@true" Striped="@true"  CanCancelEdit="@true"
+      CustomHeader="@true" 
+      >
+<HeaderContent>
+    <MudTHeadRow>
+        <MudTh>Vacancy ID</MudTh>
+        <MudTh>POSITION</MudTh>
+        <MudTh>DEPARTMENT</MudTh>
+        <MudTh>SECTION</MudTh>
+        <MudTh>VACANCY STATUS</MudTh>
+        <MudTh>START DATE</MudTh>
+        <MudTh>DUE DATE</MudTh>
+        <MudTh>NO OF EMPLOYEE</MudTh>
+        <MudTh>DESCRIPTION</MudTh>
+        <MudTh></MudTh>
+    </MudTHeadRow>
+</HeaderContent>
+    <RowTemplate>
+                    @if(open == true && close == false && all == false)
+            {
+                @if(@context.Status == "open")
+                {
+                    <MudTd DataLabel="ID">@context.VacancyID</MudTd>
+                    <MudTd DataLabel="position">@context.Position</MudTd>
+                    <MudTd DataLabel="department">@context.Department</MudTd>
+                    <MudTd DataLabel="Status">@context.Section</MudTd>
+                    <MudTd DataLabel="position">@context.Status</MudTd>
+                    <MudTd DataLabel="department">@context.StartDate</MudTd>
+                    <MudTd DataLabel="Status">@context.DueDate</MudTd>
+                    <MudTd DataLabel="Status">@context.NoEmpl</MudTd>
+                    <MudTd DataLabel="Status">@context.Description</MudTd>
+                }
+            }
+            else if(close == true && open == false && all == false)
+            {
+                @if(@context.Status == "close")
+                {
+                    <MudTd DataLabel="ID">@context.VacancyID</MudTd>
+                    <MudTd DataLabel="position">@context.Position</MudTd>
+                    <MudTd DataLabel="department">@context.Department</MudTd>
+                    <MudTd DataLabel="Status">@context.Section</MudTd>
+                    <MudTd DataLabel="position">@context.Status</MudTd>
+                    <MudTd DataLabel="department">@context.StartDate</MudTd>
+                    <MudTd DataLabel="Status">@context.DueDate</MudTd>
+                    <MudTd DataLabel="Status">@context.NoEmpl</MudTd>
+                    <MudTd DataLabel="Status">@context.Description</MudTd>
+                }
+            }
+            else
+            {
+                    <MudTd DataLabel="ID">@context.VacancyID</MudTd>
+                    <MudTd DataLabel="position">@context.Position</MudTd>
+                    <MudTd DataLabel="department">@context.Department</MudTd>
+                    <MudTd DataLabel="Status">@context.Section</MudTd>
+                    <MudTd DataLabel="position">@context.Status</MudTd>
+                    <MudTd DataLabel="department">@context.StartDate</MudTd>
+                    <MudTd DataLabel="Status">@context.DueDate</MudTd>
+                    <MudTd DataLabel="Status">@context.NoEmpl</MudTd>
+                    <MudTd DataLabel="Status">@context.Description</MudTd>
+            }
+        </RowTemplate>
+</MudTable>
+    <div class="filter">
+        <MudText>Filter</MudText>
+        <MudCheckBox @bind-Checked="@all" Color="Color.Primary"></MudCheckBox>
+        <MudText>All</MudText>
+        <MudCheckBox @bind-Checked="@open" Color="Color.Primary"></MudCheckBox>
+        <MudText>Open</MudText>
+        <MudCheckBox @bind-Checked="@close" Color="Color.Primary"></MudCheckBox>
+        <MudText>Close</MudText>
+    </div>
+    <EditForm Model="@newList" OnValidSubmit="AddTask">
+        <div class="form">
+            <div class="form-left">
+                <div class="textForm">
+    <MudText Style="margin : 10px">Vacancy ID</MudText>
+    <MudTextField Class="textField" @bind-Value="newList.VacancyID" Label="Vacancy ID" Variant="Variant.Outlined"></MudTextField>
+    </div>
+                    <div class="textForm">
+    <MudText Style="margin : 10px">Position</MudText>
+    <MudTextField Class="textField" @bind-Value="newList.Position" Label="Position" Variant="Variant.Outlined"></MudTextField>
+    </div>
+                    <div class="textForm">
+    <MudText Style="margin : 10px">Department</MudText>
+    <MudTextField Class="textField" @bind-Value="newList.Department" Label="Department" Variant="Variant.Outlined"></MudTextField>
+    </div>
+                    <div class="textForm">
+    <MudText Style="margin : 10px">Section</MudText>
+    <MudTextField Class="textField" @bind-Value="newList.Section" Label="Section" Variant="Variant.Outlined"></MudTextField>
+    </div>
+    </div>
+    <div class="form-right">
+                    <div class="textForm">
+    <MudText Style="margin : 10px">Vacancy Status</MudText>
+<MudSelect @bind-Value="newList.Status" Variant="Variant.Outlined" Label="Status" Placeholder="Please Select" AdornmentColor="Color.Primary">
+    <MudSelectItem Value="@("open")">open</MudSelectItem>
+    <MudSelectItem Value="@("close")">close</MudSelectItem>
+</MudSelect>
+    </div>
+                    <div class="textForm">
+    <MudText Style="margin : 10px">Start Date</MudText>
+    <MudTextField Class="textField" Format="dd/MM/yyyy" @bind-Value="newList.StartDate" Label="Start Date" Variant="Variant.Outlined"></MudTextField>
+    </div>
+                    <div class="textForm">
+    <MudText Style="margin : 10px">Due Date</MudText>
+    <MudTextField Class="textField" Format="dd/MM/yyyy" @bind-Value="newList.DueDate" Label="Due Date" Variant="Variant.Outlined"></MudTextField>
+    </div>
+                    <div class="textForm">
+    <MudText Style="margin : 10px">No Of Employee</MudText>
+    <MudTextField Class="textField" @bind-Value="newList.NoEmpl" Label="No Of Employee" Variant="Variant.Outlined"></MudTextField>
+    </div>
+    </div>
+
+    </div>
+        <div class="formBottom">
+     <div class="textFormBottom">
+    <MudText Style="margin : 10px">Description</MudText>
+    <MudTextField  @bind-Value="newList.Description" Label="Description" Variant="Variant.Outlined"></MudTextField>
+    </div>
+    </div>
+	<MudButton OnClick="AddTask" Variant="Variant.Filled" Color="Color.Primary">Add</MudButton>
+    </EditForm>
+</div>
+@code {
+    public bool all = true;
+    public bool open = false;
+    public bool close = false;
+    List<VacancyListModel> vacancyList = new List<VacancyListModel>()
+    {
+        new VacancyListModel()
+        {
+            Position="HR Officer",Department="Human Resources",ID=1,Status="open"
+        },
+                new VacancyListModel()
+        {
+            Position="Pool Attendant",Department="Engineering",ID=2,Status="close"
+        },
+                new VacancyListModel()
+        {
+            Position="Cook Helper",Department="F&B Kitchen",ID=3,Status="open"
+        },
+    };
+    VacancyListModel newList = new VacancyListModel();
+    private void AddTask()
+	{
+		vacancyList.Add(newList);
+		newList = new VacancyListModel();
+	}
+}
+
+
